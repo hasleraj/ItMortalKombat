@@ -5,6 +5,8 @@
  */
 package entity;
 
+import gfx.Animation;
+import gfx.Assets;
 import itmk.Controller;
 import itmk.Game;
 import itmk.ID;
@@ -15,10 +17,25 @@ import tile.Tile;
 
 public class Player extends Entity {
 
+    // ------------------------------RYU Animations
+    private Animation ryu_AnimateStand, ryu_animateMove, ryu_animateJab, ryu_animateHighKick, ryu_animateCross, ryu_animateRoundHouse;
+    //Attack Timer 
+    private long lastAttackTimer, attackCooldown = 200, attackTimer = attackCooldown;
+    private boolean facingRight = true;
+    private boolean modifier = false; 
+
 	public Player(int x, int y, int width, int height, boolean solid, ID id,
 			Controller controller) {
 		super(x, y, width, height, solid, id, controller);
 		
+                // Ryu Animation Constructors
+		ryu_AnimateStand = new Animation(150, Assets.ryu_standing);
+		ryu_animateMove = new Animation(250, Assets.ryu_move);
+		ryu_animateJab = new Animation(100, Assets.ryu_jab);
+		ryu_animateHighKick = new Animation(125, Assets.ryu_highKick);
+		ryu_animateCross = new Animation(100, Assets.ryu_cross);
+		ryu_animateRoundHouse = new Animation(150, Assets.ryu_roundHouse);
+                
 	}
 
 	@Override
