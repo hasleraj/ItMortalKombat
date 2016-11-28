@@ -97,8 +97,8 @@ public class Player extends Entity {
 		//g.drawImage(Game.player.getBufferedImage(), x, y, width, height, null);
 		
                 
-		//g.setColor(Color.BLUE);
-		//g.fillRect(x, y, width, height);
+		g.setColor(Color.BLUE);
+		g.fillRect(x, y, width, height);
                 /*
                 if(!isFacingRight()){
 			if(controller.getKeyManager().ryu_jab){
