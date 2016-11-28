@@ -13,6 +13,9 @@ public abstract class Entity {
 	public int x, y;
 	public int width, height;
 	public int velX, velY;
+        
+        protected float speed;
+	protected float xMove, yMove;
 	
 	public boolean jumping = false;
 	public boolean falling = true;
