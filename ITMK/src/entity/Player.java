@@ -98,6 +98,8 @@ public class Player extends Entity {
 	public void render(Graphics g) {
 		//g.drawImage(Game.player.getBufferedImage(), x, y, width, height, null);
 		
+                // test with sprite sheet to see if it reads file
+                //g.drawImage(getCurrentAnimationFrame(), (int) (x) + 100, (int) (y) - 10, - (width * 2), height * 2, null);
                 
 		g.setColor(Color.BLUE);
 		g.fillRect(x, y, width, height);

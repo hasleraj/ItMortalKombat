@@ -14,7 +14,8 @@ public class Controller {
 	public LinkedList<Entity> entity = new LinkedList<Entity>();
 	public LinkedList<Tile> tile = new LinkedList<Tile>();
 	public Game game;
-	public Controller(Game game){
+	
+        public Controller(Game game){
             this.game = game;
             createLevel();
                 
