@@ -12,6 +12,7 @@ import itmk.Game;
 import itmk.ID;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import tile.Tile;
 
 
@@ -40,7 +41,8 @@ public class Player extends Entity {
 
 	@Override
 	public void tick() {
-		x+=velX;
+		getInput();
+                x+=velX;
 		y+=velY;
 		if(x<=0) x = 0;
 		if(x+width>=1080) x = 1080 - width;
@@ -97,9 +99,9 @@ public class Player extends Entity {
 		//g.drawImage(Game.player.getBufferedImage(), x, y, width, height, null);
 		
                 
-		g.setColor(Color.BLUE);
-		g.fillRect(x, y, width, height);
-                /*
+		//g.setColor(Color.BLUE);
+		//g.fillRect(x, y, width, height);
+                
                 if(!isFacingRight()){
 			if(controller.getKeyManager().ryu_jab){
 				g.drawImage(ryu_animateJab.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 100, 
@@ -134,7 +136,65 @@ public class Player extends Entity {
 				g.drawImage(getCurrentAnimationFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 10, 
 				(int) (y - controller.getGameCamera().getyOffset()) - 10, width * 2, height * 2, null);
 			}
-		}*/	
+		}	
+	}
+        
+        private void getInput(){
+            int xMove = 0;
+            int yMove = 0;
+
+
+            if(controller.getKeyManager().up){
+                    yMove = -speed;
+            }
+            if(controller.getKeyManager().down){
+                    yMove = speed;
+            }
+            if(controller.getKeyManager().left){
+                    xMove = -speed;
+                    facingRight = false;
+            }
+            if(controller.getKeyManager().right){
+                    xMove = speed;
+                    facingRight = true;
+            }
+	}
+        
+        private BufferedImage getCurrentAnimationFrame(){
+		
+		//checkAttacks();
+		/*if(controller.getKeyManager().aRight){
+			return animateATKRight.getCurrentFrame();
+		}else if(controller.getKeyManager().aLeft){
+			return animateATKLeft.getCurrentFrame();
+		}else*/ 
+		
+		if(xMove < 0){
+			return ryu_animateMove.getCurrentFrame();
+		}else if(xMove > 0){
+			return ryu_animateMove.getCurrentFrame();
+		}else if(yMove < 0){
+			return ryu_animateMove.getCurrentFrame();
+		}else if(yMove > 0){
+			return ryu_animateMove.getCurrentFrame();
+		}else{	
+			return ryu_AnimateStand.getCurrentFrame();
+		}
+		
+		
+		//--------------------Original Asset
+//		if(xMove < 0){
+//			return animateLeft.getCurrentFrame();
+//		}else if(xMove > 0){
+//			return animateRight.getCurrentFrame();
+//		}else if(yMove < 0){
+//			return animateUp.getCurrentFrame();
+//		}else if(yMove > 0){
+//			return animateDown.getCurrentFrame();
+//		}else{	
+//			return Assets.player_down[0];
+//		}
+		
 	}
         
         public boolean isFacingRight() {
