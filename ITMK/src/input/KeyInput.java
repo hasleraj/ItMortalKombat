@@ -8,15 +8,23 @@ import java.awt.event.KeyListener;
 
 public class KeyInput implements KeyListener {
 
-	
+	private boolean[] keys;
+	public boolean up, down, left, right;
+	public boolean aUp, aDown, aRight, aLeft;
+	public boolean ryu_punch, ryu_jab, ryu_cross, ryu_kick, ryu_highKick, ryu_roundhouse;
 
 	
 	public KeyInput(){
-		
+		keys = new boolean[256];
 	}
 	
 	public void tick(){
-		
+            ryu_jab = keys[KeyEvent.VK_U];
+            ryu_cross = keys[KeyEvent.VK_I];
+            ryu_punch = keys[KeyEvent.VK_O];
+            ryu_highKick = keys[KeyEvent.VK_J];
+            ryu_kick = keys[KeyEvent.VK_K];
+            ryu_roundhouse= keys[KeyEvent.VK_L];
 	}
 	
 	

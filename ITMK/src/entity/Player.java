@@ -96,8 +96,54 @@ public class Player extends Entity {
 	public void render(Graphics g) {
 		//g.drawImage(Game.player.getBufferedImage(), x, y, width, height, null);
 		
-		g.setColor(Color.BLUE);
-		g.fillRect(x, y, width, height);
+                
+		//g.setColor(Color.BLUE);
+		//g.fillRect(x, y, width, height);
+                /*
+                if(!isFacingRight()){
+			if(controller.getKeyManager().ryu_jab){
+				g.drawImage(ryu_animateJab.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 100, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, - ((width * 2) + 25), height * 2, null);	
+			}else if(controller.getKeyManager().ryu_highKick){
+				g.drawImage(ryu_animateHighKick.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 100, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, - ((width * 2) + 28), height * 2, null);
+			}else if(controller.getKeyManager().ryu_cross){
+				g.drawImage(ryu_animateCross.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 100, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, - ((width * 2) + 30), height * 2, null);
+			}else if(controller.getKeyManager().ryu_roundhouse){
+				g.drawImage(ryu_animateRoundHouse.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 100, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, - ((width * 2) + 30), height * 2, null);
+			}else{
+				g.drawImage(getCurrentAnimationFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 100, 
+					(int) (y - controller.getGameCamera().getyOffset()) - 10, - (width * 2), height * 2, null);
+			}
+		}else if(isFacingRight()){
+			if(controller.getKeyManager().ryu_jab){
+				g.drawImage(ryu_animateJab.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 10, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, ((width * 2) + 25), height * 2, null);
+			}else if(controller.getKeyManager().ryu_highKick){
+				g.drawImage(ryu_animateHighKick.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 10, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, ((width * 2) + 28), height * 2, null);	
+			}else if(controller.getKeyManager().ryu_cross){
+				g.drawImage(ryu_animateCross.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 10, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, ((width * 2) + 30), height * 2, null);
+			}else if(controller.getKeyManager().ryu_roundhouse){
+				g.drawImage(ryu_animateRoundHouse.getCurrentFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 10, 
+						(int) (y - controller.getGameCamera().getyOffset()) - 10, ((width * 2) + 30), height * 2, null);
+			}else{
+				g.drawImage(getCurrentAnimationFrame(), (int) (x - controller.getGameCamera().getxOffset()) + 10, 
+				(int) (y - controller.getGameCamera().getyOffset()) - 10, width * 2, height * 2, null);
+			}
+		}*/	
+	}
+        
+        public boolean isFacingRight() {
+		return facingRight;
+	}
+
+
+	public void setFacingRight(boolean facingRight) {
+		this.facingRight = facingRight;
 	}
 	
 }

@@ -1,6 +1,7 @@
 package itmk;
 
 import entity.Entity;
+import input.KeyInput;
 import java.awt.Graphics;
 import java.util.LinkedList;
 import tile.Tile;
@@ -12,9 +13,11 @@ public class Controller {
 
 	public LinkedList<Entity> entity = new LinkedList<Entity>();
 	public LinkedList<Tile> tile = new LinkedList<Tile>();
-	
-	public Controller(){
-		createLevel();
+	public Game game;
+	public Controller(Game game){
+            this.game = game;
+            createLevel();
+                
 	}
 	
 	public void render(Graphics g){
@@ -53,6 +56,10 @@ public class Controller {
 		tile.remove(ti);
 	}
 	
+        public KeyInput getKeyManager(){
+		return game.getKeyInput();
+	}
+        
 	public void createLevel(){
 		for(int i=0; i<Game.WIDTH*Game.SCALE/64 + 1; i++){
 			addTile(new Wall(i*64, Game.HEIGHT*Game.SCALE-64,64,64,true,ID.wall, this));

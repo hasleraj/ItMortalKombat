@@ -36,6 +36,8 @@ public class Game extends Canvas implements Runnable{
 	
 	public static Sprite grass;
 	public static Sprite player;
+        
+        KeyInput keyInput;
 	
 	public Game(){
 		Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
@@ -45,8 +47,8 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	private void init(){
-		controller = new Controller();
-		addKeyListener(new KeyInput());
+		controller = new Controller(this);
+		addKeyListener(keyInput = new KeyInput());
 		//sheet = new SpriteSheet("/spritesheet.png");
 		//grass = new Sprite(sheet, 2, 1); 
 		//player = new Sprite(sheet, 1, 1);
@@ -126,6 +128,10 @@ public class Game extends Canvas implements Runnable{
 		controller.tick();
 	}
 	
+        public KeyInput getKeyInput(){
+            return keyInput;
+        }
+        
 	public static void main(String[] args){
 		Game game = new Game();
 		JFrame frame = new JFrame(TITLE);
