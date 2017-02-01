@@ -1,2 +1,3 @@
 # ItMortalKombat
-IT class version of the game Mortal Kombat
+WIP: IT class version of the game Mortal Kombat
+
